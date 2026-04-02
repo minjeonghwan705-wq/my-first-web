@@ -103,9 +103,84 @@
         flex-direction: column;
         gap: 20px;
         max-width: 500px;
+        border-radius: 8px;
+
     }
     .input-group {
         display: flex;
         flex-direction: column;
         gap: 5px;
+        border-radius: 8px;
+
     }
+.input-row {
+    display: flex;
+    gap: 15px;
+    margin-top: 20px;
+}
+
+.input-row .input-group {
+    flex: 1;
+}
+
+
+.input-group input,
+.input-group textarea {
+    width: 100%;
+    padding: 10px;
+    border-radius: 8px; 
+    border: 1px solid #ddd; 
+    box-sizing: border-box; 
+}
+
+.input-group input:focus,
+.input-group textarea:focus {
+    outline: none;
+    border-color: #000000;
+    box-shadow: 0 0 8px rgba(63, 255, 197, 0.753);
+}
+
+select {
+    width: 100%;
+    padding: 10px;
+    border-radius: 8px;
+    border: 1px solid #ddd;
+    background-color: white;
+    
+}
+
+.order-btn {
+    background-color: #ffa148;
+    color: white;
+    padding: 15px;
+    border: none;
+    border-radius: 8px;
+    width: 100%;
+    font-size: 18px;
+    font-weight: bold;
+    cursor: pointer;
+    transition:  0.1s; 
+}
+
+.order-btn:hover {
+    background-color: #f0c362;
+    transform: translateY(2px);
+}
+
+.order-btn:active {
+    transform: translateY(5px);
+}
+
+.receipt-box {
+    margin-top: 30px;
+    padding: 20px;
+    border: 2px dashed rgb(221, 4, 202);
+    background-color: white;
+    border-radius: 10px;
+    display: none;
+}
+.receipt-box h3 {
+    color: #2e7d32;
+    border-bottom: 1px solid #eee;
+    padding-bottom: 10px;
+}
