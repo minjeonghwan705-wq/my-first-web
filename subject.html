@@ -72,11 +72,11 @@
 
             
             <div class="input-group">
-                <label>배송 방식 선택</label>
-                <select>
-                    <option>일반 택배 (3000원)</option>
-                    <option>신선 새벽 배송 (5000원)</option>
-                    <option>광주 로컬푸드 매장 픽업 (무료)</option>
+                <label for="">배송 방식 선택</label>
+                <select name="" id="deliveryFee">
+                    <option value="3000">일반 택배 (3000원)</option>
+                    <option value="5000">신선 새벽 배송 (5000원)</option>
+                    <option value="0">광주 로컬푸드 매장 픽업 (무료)</option>
                 </select>
             </div>
 
@@ -100,23 +100,36 @@
     function processOrder() {
         let name = document.getElementById('userName').value;
         let phone = document.getElementById('userPhone').value;
+        
+        let feeValue = document.getElementById("deliveryFee").value;
+        let deliveryFee = Number(feeValue);
+
+        let productPrice = 15000;
+        let totalPrice = productPrice + deliveryFee;
+        
         let massage = document.querySelector('textarea').value;
 
-        
         if (name === "" || phone === "") {
             alert("⚠️ 성함과 연락처를 모두 입력해 주세요!");
-        return;
+            return;
         }
+        
         let receipt = document.getElementById('receipt');
         receipt.innerHTML = `
         <h3>🧾 주문 확인 영수증</h3>
         <p><strong>주문자:</strong> ${name} 님</p>
-        <p><strong>연락처:</strong> ${phone} 님</p>
-        <p><strong>요청사항:</strong> ${massage || "없음"}</p>
+        
+        <p><strong>상품가격:</strong> ${productPrice.toLocaleString()}원</p>
+        <p><strong>배송비:</strong> ${deliveryFee.toLocaleString()}원</p>
+       
         <hr>
+        <p style="font-size: 1.2em;"><strong>총 결제 금액: 
+            <span style="color:red;">${totalPrice.toLocaleString()}원</span>
+        </strong></p>
         <p style="text-align:center;">주문해주셔서 감사합니다!🥫</p>
         `;
-    receipt.style.display = "block";
+        
+        receipt.style.display = "block";
     }
 </script>
 </body>
