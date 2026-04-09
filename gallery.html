@@ -20,27 +20,30 @@
 </header>  
 
 <nav>
-   <a href="index.html">홈으로</a>
+    <a href="index.html">홈으로</a>
     <a href="subject.html">전공 탐구</a>
-     <a href="gallery.html">갤러리</a>
+    <a href="gallery.html">갤러리</a>
 </nav>
 <main>
-<img src="./image/me.jpg" alt="내사진" width="100">
-<a href="#" class="my-button">나에대해더알아보기</a>
-
-<p>
-<ul>
-
-<li>취미 : 게임, F1 경기시청</li>
-<li>장래희망 : 찾는중</li>
-<li>좋아하는음식 : 스테이크</li>
-<span class="material-symbols-outlined">send_time_extension     </span>
-</p>
-</ul>
+<div class="display-box">
+<img id="targetimg"src="./image/crop1.jpg"style="width: 100%;
+    max-width: 500px;"/>
+<p id="targetDesc">4월 7일: 망고 첫 수확!</p>
+</div>
+<div class="thumb-list">
+    <img src="./image/crop1.jpg" onclick="show('./image/crop1.jpg','4월 7일:망고 첫수확')"/>
+    <img src="./image/crop2.jpg" onclick="show('./image/crop2.jpg','4월 9일:비료주기완료')"/>
+</div>
 </main>
 <footer>
-
-    문의 : meverlick678@gmail.com, &copy; all right reserved by 2026 민정환
+문의 : meverlick678@gmail.com, &copy; all right reserved by 2026 민정환
 </footer>
+<script>
+    function show(imgPath,text) {
+        document.getElementById("targetimg").src=imgPath;
+        document.getElementById("targetDesc").innerText=text;
+
+    }
+</script>
 </body>
 </html>
