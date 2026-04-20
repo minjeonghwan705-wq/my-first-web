@@ -26,7 +26,7 @@
     <main>
         <div id="login-box" style="text-align: center; margin: 50px;">
             <h2>🔒 시스템 인증이 필요합니다</h2>
-            <input type="text" id="loginName" placeholder="사용자 이름" /><br>
+            <input type="text" id="userName" placeholder="사용자 이름" /><br>
             <input type="password" id="userPw" placeholder="암호 입력" /><br>
             <button onclick="checkLogin()">입장하기</button>
         </div>
@@ -173,10 +173,10 @@
         }
 
         function checkLogin() {
-            let name = document.getElementById("loginName").value;
+            let name = document.getElementById("userName").value;
             let pw = document.getElementById("userPw").value;
 
-            let currentPw = localStorage.getItem("userPassword") || "1234";
+            let currentPw = localStorage.getItem("userPassword") || "0000";
 
             if (pw === currentPw && name !== "") {
                 localStorage.setItem("isLoggedIn", "true");
@@ -197,13 +197,13 @@
         window.onload = function() {
             let isLoggedIn = localStorage.getItem("isLoggedIn");
             let savedName = localStorage.getItem("savedName");
-
             if (isLoggedIn === "true") {
                 document.getElementById("login-box").style.display = "none";
                 document.getElementById("secret-area").style.display = "block";
                 document.getElementById("user-display").innerText = savedName;
             }
         };
+
 
         function changePassword() {
             let newPw = document.getElementById("newPw").value;
